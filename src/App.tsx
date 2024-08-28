@@ -6,6 +6,7 @@ import {NewNote} from './NewNote'
 import { useLocalStorage } from './useLocalStorage'
 import { useMemo } from 'react'
 import { v4 as uuidV4 } from 'uuid'
+import { NoteList } from './NoteList'
 
 export type Tag = {
   id: string;
@@ -66,6 +67,13 @@ function App() {
     })
   }
 
+
+  function onAddTag(tag: Tag){
+    setTags(prevTags => {
+      return [...prevTags, tag]
+    })
+  }
+
   /* we can use the Routes component to define the routes of our application
     the Route component is used to define a route and the element prop is used to define the content of the route
     the path prop is used to define the path of the route
@@ -75,11 +83,12 @@ function App() {
   return (
     <Container className="my-4">
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
-          <Route path="/new" element={<NewNote/>}/>
+          <Route path="/" element={<NoteList availableTags={tags} notes={notesWithTags}/>} />
+          <Route path="/new" element={<NewNote onSubmit={onCreateNote} onAddTag={onAddTag}
+          availableTags={tags}/>}/>
           <Route path="/:id">
             <Route index element={<h1>Show</h1>} />
-            <Route path="/edit" element={<h1>Edit</h1>} />
+            <Route path="edit" element={<h1>Edit</h1>} />
           </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
