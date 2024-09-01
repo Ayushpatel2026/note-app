@@ -32,6 +32,21 @@ export function NoteForm({onSubmit, onAddTag, availableTags, title ="", markDown
         navigate('..');
     }
 
+    const handleBold = () => formatText('**', '**');
+    const handleItalic = () => formatText('*', '*');
+
+    const formatText = (prefix: string, suffix: string) => {
+        const textarea = markDownRef.current!;
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const selectedText = textarea.value.substring(start, end);
+        const newText = prefix + selectedText + suffix;
+
+        textarea.setRangeText(newText);
+        textarea.focus();
+        textarea.setSelectionRange(start + prefix.length, end + prefix.length);
+    };
+
     return (
         <Form onSubmit={handleSubmit}>
             <Stack gap={4}>
@@ -66,6 +81,29 @@ export function NoteForm({onSubmit, onAddTag, availableTags, title ="", markDown
                         </Form.Group>
                     </Col>
                 </Row>
+                <Stack direction="horizontal" gap={2} className="justify-content-end" style={{ marginBottom: '-50px' }}>
+                    <Button 
+                        onClick={handleBold} 
+                        style={{ 
+                        padding: '5px', 
+                        color: 'black', 
+                        backgroundColor: 'transparent', 
+                        border: 'none' 
+                        }}>
+                        <strong>B</strong>
+                    </Button>
+                    <Button 
+                        onClick={handleItalic} 
+                        style={{ 
+                        padding: '5px', 
+                        color: 'black', 
+                        backgroundColor: 'transparent', 
+                        border: 'none', 
+                        fontStyle: 'italic' 
+                        }}>
+                        <em>I</em>
+                    </Button>
+                </Stack>
                 <Form.Group controlId="markdown">
                     <Form.Label>Body</Form.Label>
                     <Form.Control required as="textarea" ref={markDownRef} rows={15} defaultValue={markDown}/>
@@ -75,7 +113,7 @@ export function NoteForm({onSubmit, onAddTag, availableTags, title ="", markDown
                         Save
                     </Button>
                     <Link to="..">
-                        <Button type="button" variant="outline-secondary">
+                        <Button type="button" variant="outline-danger">
                             Cancel
                         </Button>
                     </Link>
