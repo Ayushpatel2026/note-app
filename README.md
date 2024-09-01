@@ -3,6 +3,8 @@
 
 This front end application was created using React and Typescript. It allows users to create, edit, and organize notes with markdown support and tag-based categorization.
 
+![image](https://github.com/user-attachments/assets/8bb74846-5cae-4564-90d7-076b7ae6d702)
+
 ## Features
 
 - **Create and Edit Notes**: Easily create new notes or edit existing ones using the markdown editor.
@@ -21,5 +23,4 @@ This front end application was created using React and Typescript. It allows use
 - **Bootstrap**: For responsive layout and styling, including buttons, forms and badges
 - **Creatable React Select**: This library was used for managing the tag creation and selection process.
 - **React Markdown***: This library was used for the built in markdown editor
-
 ```
