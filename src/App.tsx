@@ -77,7 +77,7 @@ function App() {
     })
   }
 
-  function updateTag(id: String, label: String){
+  function updateTag(id: string, label: string){
     setTags(prevTags => {
       return prevTags.map(tag => {
         if(tag.id === id){
@@ -89,13 +89,13 @@ function App() {
     })
   }
 
-  function deleteTag(id: String){
+  function deleteTag(id: string){
     setTags(prevTags => {
       return prevTags.filter(tag => tag.id !== id)
     })
   }
 
-  function onDeleteNote(id:String){
+  function onDeleteNote(id:string){
     setNotes(prevNotes => {
       return prevNotes.filter(note => note.id !== id)
     })
