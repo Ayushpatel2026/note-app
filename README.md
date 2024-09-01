@@ -1,50 +1,25 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Note Taking Application
 
-Currently, two official plugins are available:
+This front end application was created using React and Typescript. It allows users to create, edit, and organize notes with markdown support and tag-based categorization.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Create and Edit Notes**: Easily create new notes or edit existing ones using the markdown editor.
+  ![image](https://github.com/user-attachments/assets/2068585e-360d-4e9f-bfc2-b435d11a4fd0)
+- **Tagging System**: Organize notes with customizable tags for easy filtering and retrieval. You can filter by tags as well as note title. 
+  ![image](https://github.com/user-attachments/assets/a00fe1c0-a5d0-4478-8789-78e60c153d93)
+  ![image](https://github.com/user-attachments/assets/d4276882-25d4-4fb0-914b-8b982fc67f1c)
+- **Markdown Support**: Write notes using markdown syntax, including headings, lists, code blocks, and more.
+  ![image](https://github.com/user-attachments/assets/9fd33d8d-8d8d-410d-8332-ccb03e684b23)
+- **Responsive Design**: The app is fully responsive and works seamlessly on all devices. 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+- **React**: For building the user interface.
+- **React Router**: This library was used to navigate to the specific 'Show Note', 'New Note' and 'Edit Note' pages
+- **Bootstrap**: For responsive layout and styling, including buttons, forms and badges
+- **Creatable React Select**: This library was used for managing the tag creation and selection process.
+- **React Markdown***: This library was used for the built in markdown editor
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
